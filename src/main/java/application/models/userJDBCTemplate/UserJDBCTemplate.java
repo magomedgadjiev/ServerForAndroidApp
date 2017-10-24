@@ -34,4 +34,13 @@ public class UserJDBCTemplate {
         }
     }
 
+    public User getUserOfEmail(String email){
+        try {
+            String sql = "SELECT * FROM users where email = ?";
+            return jdbcTemplate.queryForObject(sql, new UserMapper(), email);
+        } catch (EmptyResultDataAccessException e) {
+            return null;
+        }
+    }
+
 }
