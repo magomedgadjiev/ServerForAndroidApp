@@ -12,23 +12,26 @@ public class Task {
 
     private String id;
 
-    private Timestamp time;
+    private String time;
 
     private boolean repeat;
 
     private int count;
 
-    private Timestamp notification;
+    private String notification;
 
+    public Task(){
+        ;
+    }
 
     @JsonCreator
     public Task(@JsonProperty(value = "type") Integer type,
                 @JsonProperty(value = "name") String name,
                 @JsonProperty(value = "id") String id,
-                @JsonProperty(value = "time")Timestamp time,
+                @JsonProperty(value = "time")String time,
                 @JsonProperty(value = "repeat")boolean repeat,
                 @JsonProperty(value = "count")int count,
-                @JsonProperty(value = "notification")Timestamp notification) {
+                @JsonProperty(value = "notification")String notification) {
         this.type = type;
         this.name = name;
         this.id = id;
@@ -46,11 +49,11 @@ public class Task {
         this.name = name;
     }
 
-    public Timestamp getTime() {
+    public String getTime() {
         return time;
     }
 
-    public void setTime(Timestamp time) {
+    public void setTime(String time) {
         this.time = time;
     }
 
@@ -70,11 +73,11 @@ public class Task {
         this.count = count;
     }
 
-    public Timestamp getNotification() {
+    public String getNotification() {
         return notification;
     }
 
-    public void setNotification(Timestamp notification) {
+    public void setNotification(String notification) {
         this.notification = notification;
     }
 

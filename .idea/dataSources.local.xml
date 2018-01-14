@@ -2,11 +2,10 @@
 <project version="4">
   <component name="dataSourceStorageLocal">
     <data-source name="ServerForAndroid@localhost" uuid="99bd0e31-1127-4778-a3a5-34b42fe0c3c4">
-      <database-info product="PostgreSQL" version="9.5.8" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.1.1">
+      <database-info product="PostgreSQL" version="9.5.9" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.1.1">
         <identifier-quote-string>&quot;</identifier-quote-string>
       </database-info>
       <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
-      <secret-storage>master_key</secret-storage>
       <user-name>maga</user-name>
       <introspection-schemas>ServerForAndroid:public</introspection-schemas>
     </data-source>

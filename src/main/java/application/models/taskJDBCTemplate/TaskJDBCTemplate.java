@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 public class TaskJDBCTemplate {
     private final JdbcTemplate jdbcTemplate;
     private final UserJDBCTemplate userJDBCTemplate;
-    private final SocialUserJDBCTemplate socialUserJDBCTemplate
+    private final SocialUserJDBCTemplate socialUserJDBCTemplate;
 
     @Autowired
     public TaskJDBCTemplate(JdbcTemplate jdbcTemplate, UserJDBCTemplate userJDBCTemplate, SocialUserJDBCTemplate socialUserJDBCTemplate) {
@@ -55,8 +55,27 @@ public class TaskJDBCTemplate {
         }
     }
 
-    public Task getTask(String type){
+    public Task getTask(int type, String id){
+        try{
+            String sql = null;
+            switch (type){
+                case 0: {
+                    sql = "SELECT * FROM tasks WHERE user_id = ?";
+                    break;
+                }
+                case 1: {
+                    sql = "SELECT * FROM tasks WHERE social_user_id = ?";
+                    break;
+                }
+                default: {
+                    return null;
+                }
+            }
 
-
+            return jdbcTemplate.queryForObject(sql, new TaskMapper(), id);
+        } catch (EmptyResultDataAccessException e){
+            e.printStackTrace();
+            return null;
+        }
     }
 }
