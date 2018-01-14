@@ -24,3 +24,10 @@ cache:
   directories:
   - $HOME/.m2
 script: mvn clean install
+
+deploy:
+  provider: heroku
+  api_key: 48aedc55-8e6f-4619-88e7-432d51946691
+  app: motivateo
+  on:
+    repo: magomedgadjiev/ServerForAndroidApp
